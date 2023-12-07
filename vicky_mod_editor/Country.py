@@ -1,4 +1,4 @@
-from DataWriter import write_routes_data
+from .DataWriter import write_routes_data
 
 class Country:
     def __init__(self,country_tag,editor):

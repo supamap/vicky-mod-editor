@@ -1,6 +1,6 @@
-from State import State
-from Country import Country
-from DataReader import read_map_data, read_pops_data, read_states_data, read_buildings_data, read_routes_data, read_countries_data
+from .State import State
+from .Country import Country
+from .DataReader import read_map_data, read_pops_data, read_states_data, read_buildings_data, read_routes_data, read_countries_data
 
 class VickyEditor:
     def __init__(self, folder_path,quick=False):

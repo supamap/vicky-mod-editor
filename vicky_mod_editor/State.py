@@ -1,6 +1,6 @@
-from DataWriter import write_states_data, write_pops_data, write_buildings_data
+from .DataWriter import write_states_data, write_pops_data, write_buildings_data
 from copy import copy
-from utils import consolidate_pops, consolidate_buildings
+from .utils import consolidate_pops, consolidate_buildings
 
 class State:
     def __init__(self,state_name,editor):

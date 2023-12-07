@@ -1,4 +1,4 @@
-from utils import parse_cw
+from .utils import parse_cw
 import os
 
 def read_pops_data(folder_path,quick):

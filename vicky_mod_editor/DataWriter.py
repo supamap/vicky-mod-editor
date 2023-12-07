@@ -1,4 +1,4 @@
-from BlockUtils import edit_block_content
+from .BlockUtils import edit_block_content
 
 def write_states_data(state):
     
