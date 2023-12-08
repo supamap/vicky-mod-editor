@@ -68,7 +68,7 @@ def write_buildings_data(state):
         new_building_lines.append(f'\t\tregion_state:{ss} = {{\n')
 
         for building in buildings:
-            pms = " ".join(building['activate_production_methods'])
+            pms = " ".join(['"'+b+'"' for b in building['activate_production_methods']])
             new_building_lines.extend([
                 '\t\t\tcreate_building={\n',
                 f'\t\t\t\tbuilding="{building["building"]}"\n',
