@@ -9,3 +9,4 @@ build/
 *.ipynb 
 venv/  
 .ipynb_checkpoints/
+how_to_upload.txt
