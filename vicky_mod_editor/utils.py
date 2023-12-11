@@ -51,7 +51,7 @@ def consolidate_pops(pops):
 
 def consolidate_buildings(buildings):
     d = {}
-    params = ['level','reserves','activate_production_methods']
+    params = ['level','activate_production_methods']
     
     for b in buildings:
         b_type = b['building']

@@ -27,12 +27,15 @@ class VickyEditor:
             self.countries[country_tag] = Country(country_tag,self)
             
     def transfer_full_state(self,state_name,target_country):
+        assert state_name in self.states, f"State {state_name} does not exist"
         self.states[state_name].transfer_all_provinces_to_country(target_country)
     
     def transfer_provinces(self,state_name,provinces,target_country):
+        assert state_name in self.states, f"State {state_name} does not exist"
         self.states[state_name].transfer_provinces_to_country(provinces,target_country)
 
     def transfer_substate(self,state_name,source_country,target_country):
+        assert state_name in self.states, f"State {state_name} does not exist"
         if source_country in self.states[state_name].substates:
             self.states[state_name].transfer_all_provinces_in_substate_to_country(source_country,target_country)    
     

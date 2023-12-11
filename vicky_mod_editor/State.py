@@ -1,6 +1,7 @@
 from .DataWriter import write_states_data, write_pops_data, write_buildings_data
 from copy import copy
 from .utils import consolidate_pops, consolidate_buildings
+import os
 
 class State:
     def __init__(self,state_name,editor):
@@ -11,11 +12,24 @@ class State:
         self.claims = editor.states_data[state_name]['claims']
         self.substates = editor.states_data[state_name]['substates']
         self.pops = editor.pops_data[state_name]['pops']
-        self.buildings = editor.buildings_data[state_name]['buildings']
+        
         
         self.states_path = editor.states_data[state_name]['states_path']
         self.pops_path = editor.pops_data[state_name]['pops_path']
+
+        if state_name not in editor.buildings_data:
+            pp = self.pops_path
+            bp = os.path.join(os.path.dirname(os.path.dirname(pp)),'buildings',os.path.basename(pp))
+
+            # for some reason this state does NOT have a place in the buildings,therefore we gotta add it
+            editor.buildings_data[state_name] = {
+                'buildings':{c:[] for c in self.substates},
+                'buildings_path':bp
+            }
+        self.buildings = editor.buildings_data[state_name]['buildings']
         self.buildings_path = editor.buildings_data[state_name]['buildings_path']
+
+
         
     def get_substate_population(self,country):
         if country in self.pops:
